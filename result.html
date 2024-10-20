@@ -81,13 +81,12 @@
 
             if (imgIndex === 3) {
 
+                document.getElementById('anh').src = "letter.png";
                 document.getElementById('anh').style.width = "50%";
                 document.getElementById('anh').style.height = "50%";
                 document.getElementById('anh').style.animation = "zoomAnimation 1s infinite alternate";
                 document.getElementById('anh').style.cursor = "pointer";
 
-                document.getElementById('anh').src = "letter.png";
-                
                 const image = document.getElementById('anh');
                 image.addEventListener('click', function() {
                     
