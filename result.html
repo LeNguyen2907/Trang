@@ -16,10 +16,11 @@
         }
 
         .video {
+            width: 100%;
             display: flex;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
         }
 
         video {
@@ -40,6 +41,7 @@
         }
 
         .anh {
+            width: 100%;
             display: none;
         }
 
@@ -105,6 +107,7 @@
             videoContainer.style.display = 'none';
             slideshow.style.display = 'flex';
             slideshow.style.justifyContent = 'center';
+            slideshow.style.alignItems = 'center';
 
             setInterval('play()', 3000);
         });
