@@ -70,7 +70,7 @@
             border-radius: 5px;
             width: 100px;
             height: 35px;
-            font-size: 16px;
+            font-size: 15px;
             color: #f56d84;
             margin-top: 10px;
             text-align: center;
@@ -86,11 +86,20 @@
             </div>
             <form action="">
                 <label for="password">Mật khẩu của trái tim ❤️</label>
-                <input type="text" id="password">
+                <input type="password" id="password">
                 <p>Mật khẩu ghi liền không dấu</p>
-                <button type="submit">Xác nhận</button>
+                <button type="button" onclick="check()">Xác nhận</button>
             </form>
         </div>
     </div>
+    <script>
+        
+        function check () {
+            var pass = document.getElementById('password').value;
+            if (pass === "Anhyeuem") {
+                location.href = "result.html";
+            }
+        }
+    </script>
 </body> 
 </html>
