@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu em ❤️</title>
+    <style>
+         body, .container {
+            background-color: #ffdcdc;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .video {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        video {
+            width: 80%;
+            height: 80%;
+        }
+
+        /* .anh {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        } */
+
+        img {
+            width: 80%;
+            height: 80%;
+        }
+
+        .anh {
+            width: 100%;
+            display: none;
+        }
+
+        @keyframes zoomAnimation {
+            0% {
+                transform: scale(1); 
+            }
+            100% {
+                transform: scale(1.5); 
+            }
+        }
+    </style>
+</head>
+<body onload="load()">
+    <div class="container">
+        <div class="video">
+            <video id="video" src="video1.mp4" controls></video>
+        </div>
+
+        <div class="anh">
+            <img id="anh" src="Image/anh1.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var arrAnh = new Array();
+        var imgIndex = 1;
+        var interval;
+        
+        function load() {
+            for (let i = 1; i <= 3; i++) {
+                arrAnh.push("Image/anh" + i + ".jpg"); // Đưa đường dẫn vào mảng
+            }
+            const video = document.getElementById('video');
+            const slideshow = document.querySelector('.anh');
+            const videoContainer = document.querySelector('.video');
+            video.play();
+            video.addEventListener('ended', function() {
+                videoContainer.style.display = 'none';
+                slideshow.style.display = 'flex';
+                slideshow.style.justifyContent = 'center';
+                slideshow.style.alignItems = 'center';
+                const slideshows = document.getElementById('anh');
+                slideshows.style.display = 'flex'; 
+
+                play();
+            });
+        }
+
+        function start() {
+
+            if (imgIndex != 3) {
+
+                imgIndex++;
+                document.getElementById('anh').src = arrAnh[imgIndex].src;
+            } else {
+
+                document.getElementById('anh').style.width = "50%";
+                document.getElementById('anh').style.height = "50%";
+                document.getElementById('anh').style.animation = "zoomAnimation 1s infinite alternate";
+                document.getElementById('anh').style.cursor = "pointer";
+
+                document.getElementById('anh').src = "letter.png";
+                
+                const image = document.getElementById('anh');
+                image.addEventListener('click', function() {
+                    
+                    location.href = "love.html";
+                });
+            }
+        }
+
+        function play() {
+
+            interval = setInterval('start()', 2000);
+        }
+
+        
+    </script>
+</body>
+</html>
