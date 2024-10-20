@@ -103,13 +103,14 @@
         const video = document.getElementById('video');
         const slideshow = document.querySelector('.anh');
         const videoContainer = document.querySelector('.video');
+        video.play();
         video.addEventListener('ended', function() {
             videoContainer.style.display = 'none';
             slideshow.style.display = 'flex';
             slideshow.style.justifyContent = 'center';
             slideshow.style.alignItems = 'center';
 
-            setInterval('play()', 3000);
+            play();
         });
 
         const image = document.getElementById('anh');
